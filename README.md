@@ -5,6 +5,6 @@
 
 ## 📰 News & Update
 
-- **[2024.04.18]** The original code will be available soon! 
+- **[2024.04.18]** The original code will be coming soon! 
 - **[2024.04.06]** The paper has been accepted by IEEE Transactions on Pattern Analysis and Machine Intelligence
 
