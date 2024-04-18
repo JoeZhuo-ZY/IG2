@@ -5,7 +5,7 @@
 
 ## 📰 News & Update
 
-- **[2024.04.18]** The original code is available now! Welcome to try it according to the [tutorial](./tutorial-submodular-cub.ipynb)!
+- **[2024.04.18]** The original code will be available soon! ```Welcome to try it according to the [tutorial](./tutorial-submodular-cub.ipynb)!```
 - **[2024.04.06]** The paper has been accepted by IEEE Transactions on Pattern Analysis and Machine Intelligence
 <!-- 
 ## 🐳 Model Zoo
