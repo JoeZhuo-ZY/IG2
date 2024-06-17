@@ -17,13 +17,12 @@
 
 ## Usage
 
-Install the Saliency
+Install the Saliency. Please refer to [saliency repositories](https://github.com/PAIR-code/saliency) for the detailed descriptions.
 ```
 pip install saliency
 ```
-Please refer to [saliency repositories](https://github.com/PAIR-code/saliency) for the detailed descriptions.
 
-Our method is implemented by the class ```IG2```, in file ```ig2.py```.
+Our method is implemented by the class ```IG2```, in file [```ig2.py```](https://github.com/JoeZhuo-ZY/IG2/blob/main/ig2.py). 
 
 
 ##### Examples
