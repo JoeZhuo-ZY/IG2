@@ -22,40 +22,50 @@ Install the Saliency. Please refer to [saliency repositories](https://github.com
 pip install saliency
 ```
 
-Our method is implemented by the class ```IG2```, in file [```ig2.py```](https://github.com/JoeZhuo-ZY/IG2/blob/main/ig2.py). 
+Our method is implemented by the class ```IG2```, in file [```ig2.py```](https://github.com/JoeZhuo-ZY/IG2/blob/main/ig2.py). This class contains the following methods (the default parameters are suggested for ImageNet samples):
+- Get_GradPath(x_value, baselines, call_model_function, call_model_args=None, steps=201, step_sizes=256.0, clip_min_max=[0,255]): Iteratively searchs the counterfactuals based on gradinet descent, building GradPath for integration.
+- GetMask(x_value, baselines, call_model_function, call_model_args=None, steps=201, step_sizes=256.0, clip_min_max=[0,255]): Integrates the gradients on the GradPath, returns a saliency mask.
 
 
-##### Examples
+## Examples
 
-[This example iPython notebook](http://github.com/pair-code/saliency/blob/master/Examples_core.ipynb)
-showing these techniques is a good starting place.
+[This example iPython notebook](https://github.com/JoeZhuo-ZY/IG2/blob/main/example_ImageNet.ipynb)
+showing IG2 example for attritbuting the features of ImageNet samples with Pytorch.
 
-Here is a condensed example of using IG+SmoothGrad with TensorFlow 2:
 
 ```
-import saliency.core as saliency
-import tensorflow as tf
+import ig2
+from saliency.core.base import ...
 
 ...
 
-# call_model_function construction here.
+# Calculate the gradients of representation distance (MSE) between the explained image and searched path points.
 def call_model_function(x_value_batched, call_model_args, expected_keys):
-	tape = tf.GradientTape()
-	grads = np.array(tape.gradient(output_layer, images))
-	return {saliency.INPUT_OUTPUT_GRADIENTS: grads}
+    elif REP_DISTANCE_GRADIENTS in expected_keys:
+        loss_fn = torch.nn.MSELoss()         
+        baseline_conv = call_model_args['layer_baseline']
+        input_conv = rep_layer_outputs[REP_LAYER_VALUES]
+        loss = -1 * loss_fn(input_conv, baseline_conv)
+        loss.backward()
+        grads = images.grad.data
+        grads = torch.movedim(grads, 1, 3)
+        gradients = grads.cpu().detach().numpy()
+        return {REP_DISTANCE_GRADIENTS: gradients,
+                'loss':loss}
 
 ...
 
-# Load data.
-image = GetImagePNG(...)
+# Load explained sample and references. (You can custom your own datasets here.)
+rnd_idx = np.random.choice(all_references.shape[0],replace=False, size=n_reference)
+references = all_references[rnd_idx]
 
-# Compute IG+SmoothGrad.
-ig_saliency = saliency.IntegratedGradients()
-smoothgrad_ig = ig_saliency.GetSmoothedMask(image, 
-											call_model_function, 
-                                            call_model_args=None)
+# Compute IG2.
+explainer = ig2.IG2()
+ig2_mask = explainer.GetMask(im,references,
+    call_model_function,call_model_args,steps=201,step_size=256.0,clip_min_max=[0,255],)
 
 # Compute a 2D tensor for visualization.
-grayscale_visualization = saliency.VisualizeImageGrayscale(
-    smoothgrad_ig)
+mask_grayscale = vis.VisualizeImageGrayscale(ig2_mask)
+f, ax = plt.subplots()
+ShowGrayscaleImage(mask_grayscale, ax)
 ```
