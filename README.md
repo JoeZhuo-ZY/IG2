@@ -21,7 +21,9 @@ Install the Saliency
 ```
 pip install saliency
 ```
-Please refer to [saliency repositories](https://github.com/PAIR-code/saliency) for the detailed decription about classes and methods.
+Please refer to [saliency repositories](https://github.com/PAIR-code/saliency) for the detailed descriptions.
+
+Our method is implemented by the class ```IG2```, in file ```ig2.py```.
 
 
 ##### Examples
