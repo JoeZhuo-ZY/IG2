@@ -1,7 +1,6 @@
 <h2 align="center"> [TPAMI 2024] IG<sup>2</sup>: Integrated Gradient on Iterative Gradient Path for Feature Attribution </h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
-[Y. Zhuo and Z. Ge, "IG2: Integrated Gradient on Iterative Gradient Path for Feature Attribution," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 46, no. 11, pp. 7173-7190, Nov. 2024, doi: 10.1109/TPAMI.2024.3388092. ](https://arxiv.org/abs/2406.10852)
-![](./image/abstract.gif)
+[Y. Zhuo and Z. Ge, "IG2: Integrated Gradient on Iterative Gradient Path for Feature Attribution," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 46, no. 11, pp. 7173-7190, Nov. 2024, doi: 10.1109/TPAMI.2024.3388092.](https://arxiv.org/abs/2406.10852)
 
 ## 📰 News & Update
 
