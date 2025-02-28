@@ -68,3 +68,16 @@ mask_grayscale = vis.VisualizeImageGrayscale(ig2_mask)
 f, ax = plt.subplots()
 ShowGrayscaleImage(mask_grayscale, ax)
 ```
+
+If you find our work useful, please cite:
+
+```bibtex
+@ARTICLE{10497902,
+  author={Zhuo, Yue and Ge, Zhiqiang},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={IG2: Integrated Gradient on Iterative Gradient Path for Feature Attribution}, 
+  year={2024},
+  volume={46},
+  number={11},
+  pages={7173-7190},
+  doi={10.1109/TPAMI.2024.3388092}}
