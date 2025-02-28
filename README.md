@@ -1,6 +1,6 @@
 <h2 align="center"> [TPAMI 2024] IG<sup>2</sup>: Integrated Gradient on Iterative Gradient Path for Feature Attribution </h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
-[![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg)](https://arxiv.org/abs/2406.10852)
+[arxiv link](https://arxiv.org/abs/2406.10852)
 
 ## 📰 News & Update
 
